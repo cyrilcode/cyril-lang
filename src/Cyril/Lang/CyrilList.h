@@ -44,6 +44,11 @@ public:
   virtual int matchPushPop() {
     return c1->matchPushPop() + c2->matchPushPop();
   }
+    virtual void compile(instr_stack &stack)
+    {
+      c1->compile(stack);
+      c2->compile(stack);
+    }
 };
 
 

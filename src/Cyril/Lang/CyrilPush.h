@@ -33,6 +33,10 @@ public:
 //  virtual void eval(CyrilState &_s) {
 //    _s.stk->push(f);
 //  }
+    virtual void compile(instr_stack &stack)
+    {
+      stack.push_back({opcode::push, f});
+    }
 };
 
 

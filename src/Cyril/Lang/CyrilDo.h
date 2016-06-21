@@ -48,6 +48,21 @@ public:
 //    }
 //  }
   virtual int matchPushPop() { return c->matchPushPop(); }
+
+
+    virtual void compile(instr_stack &stack)
+    {
+      e->compile(stack);
+      instr_stack temp;
+      c->compile(temp);
+      for (auto i : temp)
+      {
+        i.rem += " (in loop)";
+        stack.push_back(i);
+      }
+      stack.push_back({opcode::op_dec, 1});
+      stack.push_back({opcode::jump_ifnot0, 0, (int)temp.size() + 1});
+    }
 };
 
 

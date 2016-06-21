@@ -25,6 +25,12 @@ public:
   virtual int size();
 //  virtual void eval(CyrilState &);
   virtual int matchPushPop() { return c->matchPushPop(); }
+
+    virtual void compile(instr_stack &stack)
+    {
+      // TODO: complicated looping stuff for tile!
+      c->compile(stack);
+    }
 };
 
 #endif /* defined(__Cyril__CyrilTileOp__) */

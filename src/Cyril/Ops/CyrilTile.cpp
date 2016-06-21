@@ -27,6 +27,7 @@ CyrilTile::~CyrilTile ()
 }
 void CyrilTile::print() {
   c->print();
+  e->print();
   cout << "Tile" << endl;
 }
 Cyril * CyrilTile::clone () {

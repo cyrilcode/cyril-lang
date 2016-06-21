@@ -20,6 +20,26 @@ public:
   virtual Cyril *clone ();
   virtual int size();
 //  virtual void eval(CyrilState &);
+    virtual void compile(instr_stack &stack)
+    {
+        switch (c->size())
+        {
+            case 3:
+                c->compile(stack);
+                break;
+            case 1:
+                c->compile(stack);
+                stack.push_back({opcode::dup});
+                stack.push_back({opcode::dup});
+                break;
+            default:
+                stack.push_back({opcode::push, 1});
+                stack.push_back({opcode::push, 1});
+                stack.push_back({opcode::push, 1});
+
+        }
+        stack.push_back({opcode::box});
+    }
 };
 
 

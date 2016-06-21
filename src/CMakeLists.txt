@@ -68,6 +68,7 @@ set(SOURCE_FILES
         Cyril/Funs/CyrilFun.cpp
         Cyril/Ops/CyrilParticle.cpp
         Cyril/Ops/CyrilTile.cpp
+        Cyril/instr.cpp
         )
 add_library(cyril_lang ${SOURCE_FILES}
         ${BISON_CyrilParser_OUTPUTS}

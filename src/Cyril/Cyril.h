@@ -10,6 +10,9 @@
 #define cyril2_Cyril_h
 
 #include "cmds.h"
+
+#include "instr.h"
+
 //#include "CyrilState.h"
 
 //class Particle;
@@ -25,6 +28,10 @@ public:
   virtual Cyril *clone ();
   virtual void print() { };
   virtual int size();
+    virtual void compile(instr_stack &stack)
+    {
+        // NO OP!
+    }
 //  virtual void update(CyrilState &);
 //  virtual void eval(CyrilState &);
   virtual int matchPushPop() { return 0; }

@@ -53,6 +53,21 @@ public:
 //    }
 //  }
   virtual int matchPushPop() { return c->matchPushPop(); }
+
+    virtual void compile(instr_stack &stack)
+    {
+        c->compile(stack);
+        switch (c->size())
+        {
+            case 1:
+                stack.push_back({opcode::save, 0, loc});
+                break;
+            case 3:
+                stack.push_back({opcode::op_3toHex});
+                stack.push_back({opcode::save, 0, loc});
+                break;
+        }
+    }
 };
 
 #endif

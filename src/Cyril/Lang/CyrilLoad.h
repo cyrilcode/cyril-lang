@@ -39,6 +39,12 @@ public:
 //          _s.stk->push((*_s.sym)[loc]);
 //      }
 //  }
+
+
+    virtual void compile(instr_stack &stack)
+    {
+        stack.push_back({opcode::load, 0, loc});
+    }
 };
 
 
